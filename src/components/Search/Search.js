@@ -18,7 +18,7 @@ class Search extends Component {
     return (
       <section>
         <input
-          className="br1 input-reset w-100 bn pa3 bg-dark-gray light-gray"
+          className="br1 input-reset w-100 bn pa3 mb3 bg-dark-gray light-gray"
           type="text"
           placeholder="Search for titles, directors and/or actors..."
           value={search}
@@ -29,8 +29,8 @@ class Search extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  ...state,
+const mapStateToProps = ({ search }) => ({
+  search,
 })
 
 export { Search }

@@ -10,10 +10,10 @@ const Header = () => (
       <div className="w-100 w-third-ns dib-ns red ttu">
         <h1>Netflix Roulette</h1>
       </div>
-      <div className="w-100 w-two-thirds-ns dib-ns f5">
-        <ul className="list">
+      <div className="w-100 w-two-thirds-ns tr-ns dib-ns f5">
+        <ul className="list ph0 mh0">
           {options.map((option, index) => (
-            <li className="dib-ns ph2" key={index}>
+            <li className="dib ph2-ns" key={index}>
               <Link to={option.path} className="link white normal pv3 ph2">
                 {option.name}
               </Link>
