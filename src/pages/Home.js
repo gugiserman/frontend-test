@@ -1,14 +1,14 @@
 import React from 'react'
 
 import {
-  Header,
+  Page,
+  Search,
 } from '../components'
 
 const HomePage = () => (
-  <div>
-    <Header />
-    <h1>Homepage</h1>
-  </div>
+  <Page>
+    <Search />
+  </Page>
 )
 
 export default HomePage
