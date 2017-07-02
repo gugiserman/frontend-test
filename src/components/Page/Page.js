@@ -6,7 +6,7 @@ import {
 } from '../'
 
 const Page = ({ children }) => (
-  <div className="ph3">
+  <div className="w-100 ph3">
     <Header />
     {children}
   </div>

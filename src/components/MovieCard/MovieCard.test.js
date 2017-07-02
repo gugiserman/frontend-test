@@ -7,7 +7,10 @@ const movie = mock[0]
 
 describe('MovieCard component', () => {
   it('renders', () => {
-    const props = movie
+    const props = {
+      movie,
+      showLabel: true,
+    }
 
     shallow(
       <MovieCard {...props} />

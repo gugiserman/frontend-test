@@ -6,7 +6,11 @@ import { connect } from 'react-redux'
 const Movies = ({ movies }) => (
   <section className="mt2 mb2 mt3-ns">
     {movies.map(movie => (
-      <MovieCard {...movie} key={movie.unit} />
+      <MovieCard
+        movie={movie}
+        showLabel
+        key={movie.unit}
+      />
     ))}
   </section>
 )
