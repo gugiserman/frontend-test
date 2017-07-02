@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const MoviePoster = ({ src, title }) => (
-  <article className="shadow-2">
-    <img className="br2" src={src} alt={title} />
+  <article>
+    <img className="br3 shadow-2" src={src} alt={title} />
   </article>
 )
 

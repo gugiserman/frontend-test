@@ -10,9 +10,11 @@ const MovieCard = ({ movie, showLabel }) => {
     poster,
   } = movie
 
+  const encodedTitle = encodeURIComponent(show_title)
+
   return (
     <article className="relative dib w-50 w-20-ns mb1 ph1 tc">
-      <Link className="link" to={show_title}>
+      <Link className="link" to={encodedTitle}>
         {showLabel &&
           <div className="absolute dt bottom-0 w-100 ph2 pb2 bg-black-60 hover-bg-black-80">
             <div className="dtc v-mid tl">
