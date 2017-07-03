@@ -45,7 +45,7 @@ class NetflixRoulette {
   }
 
   static fetchMovieByTitle(title) {
-    return this.fetchMoviesBy({
+    return this.fetchMovies({
       title,
     }, true)
   }

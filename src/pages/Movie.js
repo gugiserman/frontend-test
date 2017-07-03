@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { NetflixRoulette } from '../clients'
+import { NetflixRoulette, Favorites } from '../clients'
 import { updateMovie } from '../flux/actions'
 import { connect } from 'react-redux'
 
@@ -10,6 +10,21 @@ import {
 } from '../components'
 
 class MoviePage extends Component {
+  handleToggleFavorite = () => {
+    const { movie, dispatch } = this.props
+    const { unit, isFavorite } = movie
+
+    if (isFavorite) {
+      Favorites.removeMovie(unit)
+    } else {
+      Favorites.addMovie(movie)
+    }
+
+    dispatch(
+      updateMovie(movie)
+    )
+  }
+
   componentDidMount() {
     const { dispatch, match } = this.props
     const { params: { title } } = match
@@ -35,7 +50,7 @@ class MoviePage extends Component {
 
     if (!movie || !movie.unit) {
       return (
-        <Page>...</Page>
+        <Page>loading...</Page>
       )
     }
 
@@ -49,6 +64,7 @@ class MoviePage extends Component {
       show_cast,
       director,
       category,
+      isFavorite,
     } = movie
 
     return (
@@ -63,10 +79,18 @@ class MoviePage extends Component {
             </h1>
             <p className="mt2 gray">
               {rating} &#x2605;{' '}
-              &bull;{' '}
+              <small>&bull;</small>{' '}
               {release_year}{' '}
-              &bull;{' '}
-              {runtime}
+              <small>&bull;</small>{' '}
+              {runtime}{' '}
+              <small>&bull;</small>{' '}
+              <button type="button" className="button-reset ph1 bg-transparent bn gray hover-near-white pointer f7"
+                      onClick={this.handleToggleFavorite}>
+                <span className={`${isFavorite ? 'dark-red hover-red' : ''}`}>
+                  &hearts;{' '}
+                </span>
+                {isFavorite ? 'Remove' : 'Add'} favorite
+              </button>
             </p>
             <p className="pv3 f5 gray">
               {summary}

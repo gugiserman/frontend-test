@@ -8,12 +8,18 @@ class Favorites {
   static getMovies() {
     const data = localStorage.getItem(this.itemName)
 
-    if (!data || !Array.isArray(data)) {
+    if (!data) {
+      return []
+    }
+
+    const list = JSON.parse(data)
+
+    if (!Array.isArray(list)) {
       this.setMovies()
       return []
     }
 
-    return JSON.parse(data)
+    return list
   }
 
   static setMovies(list = []) {
@@ -37,6 +43,13 @@ class Favorites {
 
     list.splice(index, 1)
     this.setMovies(list)
+  }
+
+  static isFavorite(movieUnit) {
+    const list = this.getMovies()
+    const index = list.findIndex(movie => movie.unit === movieUnit)
+
+    return index >= 0
   }
 }
 
