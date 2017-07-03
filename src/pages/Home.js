@@ -6,6 +6,7 @@ import debounce from 'debounce'
 import {
   updateMovies,
   startMoviesLoading,
+  showMoviesNotFound,
 } from '../flux/actions'
 
 import {
@@ -31,11 +32,11 @@ class HomePage extends Component {
       startMoviesLoading()
     )
 
-    NetflixRoulette.fetchMovies(query).then(movies =>
-      dispatch(
-        updateMovies(movies)
-      )
-    )
+    NetflixRoulette.fetchMovies(query).then(movies => dispatch(
+      updateMovies(movies)
+    )).catch(() => dispatch(
+      showMoviesNotFound(true)
+    ))
   }
 
   componentDidMount() {

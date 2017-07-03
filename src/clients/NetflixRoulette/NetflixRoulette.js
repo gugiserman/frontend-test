@@ -20,7 +20,7 @@ class NetflixRoulette {
         const { data } = response
 
         if (!data) {
-          return reject(singleResult ? {} : [])
+          return reject()
         }
 
         let movies = []
@@ -40,7 +40,7 @@ class NetflixRoulette {
         }
 
         return resolve(movies)
-      })
+      }).catch(reject)
     })
   }
 

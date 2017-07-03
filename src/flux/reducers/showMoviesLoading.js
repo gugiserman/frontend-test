@@ -3,9 +3,9 @@ const initialState = false
 const showMoviesLoading = (value = initialState, action) => {
   switch (action.type) {
     case 'START_MOVIES_LOADING':
-      return action.value
     case 'STOP_MOVIES_LOADING':
       return action.value
+    case 'SHOW_MOVIES_NOT_FOUND':
     case 'UPDATE_MOVIES':
       return false
     default:
