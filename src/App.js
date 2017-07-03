@@ -6,6 +6,7 @@ import configureStore from './flux/configureStore'
 import {
   HomePage,
   MoviePage,
+  FavoritesPage,
 } from './pages'
 
 const noMatch = () => (
@@ -19,6 +20,7 @@ const App = () => (
     <Router>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/favorites" component={FavoritesPage} />
         <Route path="/:title" component={MoviePage} />
         <Route path="/404" component={noMatch} />
         <Route component={noMatch} />
