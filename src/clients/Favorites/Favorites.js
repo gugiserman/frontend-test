@@ -29,7 +29,9 @@ class Favorites {
 
   static addMovie(movie = {}) {
     const list = this.getMovies()
-    const newList = list.concat([movie])
+    const newList = list.slice()
+
+    newList.unshift(movie)
     this.setMovies(newList)
   }
 
