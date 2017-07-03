@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import MenuItem from './MenuItem'
 import { getMenuOptions } from '../../utils'
 
 const options = getMenuOptions()
@@ -13,11 +13,7 @@ const Header = () => (
       <div className="w-100 w-two-thirds-ns tr-ns dib-ns f5">
         <ul className="list ph0 mh0">
           {options.map((option, index) => (
-            <li className="dib ph2-ns" key={index}>
-              <Link to={option.path} className="link white normal pv3 ph2">
-                {option.name}
-              </Link>
-            </li>
+            <MenuItem {...option} key={index} />
           ))}
         </ul>
       </div>
