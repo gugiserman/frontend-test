@@ -4,7 +4,7 @@ import { MovieCard } from '../'
 import { connect } from 'react-redux'
 
 const Movies = ({ movies, showMoviesNotFound, showMoviesLoading }) => (
-  <section className="mb2 mt3">
+  <section className="mb2 mt4">
     {showMoviesLoading && (
       <h3 className="tc">loading...</h3>
     )}
@@ -14,7 +14,7 @@ const Movies = ({ movies, showMoviesNotFound, showMoviesLoading }) => (
     )}
 
     {(!showMoviesLoading && !showMoviesNotFound) && movies.map(movie => (
-      <article className="dib ph1 mb2 w-100 w-20-ns" key={movie.unit}>
+      <article className="dib ph1 mb3 w-100 w-20-ns tc" key={movie.unit}>
         <MovieCard movie={movie} showLabel />
       </article>
     ))}
