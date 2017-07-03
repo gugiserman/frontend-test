@@ -9,3 +9,5 @@ body {
 .pl5-half {
   padding-left: 5.5rem;
 }
+
+@import url('Search.css')
