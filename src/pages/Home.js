@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NetflixRoulette } from '../clients'
-import { updateMovies } from '../flux/actions'
 import debounce from 'debounce'
+
+import {
+  updateMovies,
+  startMoviesLoading,
+} from '../flux/actions'
 
 import {
   Page,
@@ -22,6 +26,10 @@ class HomePage extends Component {
     const query = {
       [searchParam]: search,
     }
+
+    dispatch(
+      startMoviesLoading()
+    )
 
     NetflixRoulette.fetchMovies(query).then(movies =>
       dispatch(

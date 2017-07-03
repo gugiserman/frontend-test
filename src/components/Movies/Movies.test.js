@@ -6,6 +6,7 @@ describe('Movies component', () => {
   it('renders', () => {
     const props = {
       movies: [],
+      showMoviesLoading: false,
     }
 
     shallow(
