@@ -28,7 +28,7 @@ class Search extends Component {
     const options = getSearchOptions()
 
     return (
-      <section>
+      <section className="mb4">
         <select className="input-reset h3 ph2 absolute z-999 ba b--dark-gray br0 bg-near-black gray f7 tc pointer Search__param-select"
                 value={searchParam} onChange={this.handleParamChange}>
           {options.map(option => (
@@ -38,7 +38,7 @@ class Search extends Component {
           ))}
         </select>
         <input
-          className="input-reset br1 h3 w-100 bn pa3 pl5 indent mb3 bg-dark-gray light-gray f7 f5-ns"
+          className="input-reset br1 h3 w-100 bn pa3 pl5 indent bg-dark-gray light-gray f7 f5-ns"
           type="text"
           placeholder="Search for titles, directors or actors..."
           value={search}

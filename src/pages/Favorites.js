@@ -24,7 +24,7 @@ class FavoritesPage extends Component {
     return (
       <Page>
         {movies.length > 0 ? (
-          <h3>My Favorites</h3>
+          <h3 className="ph1 mb0">My Favorites</h3>
         ) : (
           <h2 className="tc mt5">You have no favorites yet :(</h2>
         )}
