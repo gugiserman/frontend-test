@@ -40,7 +40,7 @@ class Search extends Component {
         <input
           className="input-reset br1 h3 w-100 bn pa3 pl5 pl6-ns mb3 bg-dark-gray light-gray f6 f5-ns"
           type="text"
-          placeholder="Search for titles, directors and/or actors..."
+          placeholder="Search for titles, directors or actors..."
           value={search}
           onChange={this.handleChange}
         />
