@@ -9,7 +9,7 @@ import {
 } from '../components'
 
 class FavoritesPage extends Component {
-  componentDidMount() {
+  componentWillMount() {
     const { dispatch } = this.props
     const favorites = Favorites.getMovies()
 
@@ -19,14 +19,24 @@ class FavoritesPage extends Component {
   }
 
   render() {
+    const { movies } = this.props
+
     return (
       <Page>
-        <h3>My Favorites</h3>
+        {movies.length > 0 ? (
+          <h3>My Favorites</h3>
+        ) : (
+          <h2 className="tc mt5">You have no favorites yet :(</h2>
+        )}
         <Movies />
       </Page>
     )
   }
 }
 
+const mapStateToProps = ({ movies }) => ({
+  movies,
+})
+
 export { FavoritesPage }
-export default connect()(FavoritesPage)
+export default connect(mapStateToProps)(FavoritesPage)
