@@ -21,7 +21,10 @@ class MoviePage extends Component {
     }
 
     dispatch(
-      updateMovie(movie)
+      updateMovie({
+        ...movie,
+        isFavorite: Favorites.isFavorite(movie.unit),
+      })
     )
   }
 
@@ -32,7 +35,10 @@ class MoviePage extends Component {
 
     NetflixRoulette.fetchMovieByTitle(decodedTitle).then(movie =>
       dispatch(
-        updateMovie(movie)
+        updateMovie({
+          ...movie,
+          isFavorite: Favorites.isFavorite(movie.unit),
+        })
       )
     )
   }
