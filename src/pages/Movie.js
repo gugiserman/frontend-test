@@ -26,7 +26,7 @@ class MoviePage extends Component {
     const { dispatch } = this.props
 
     dispatch(
-      updateMovie({})
+      updateMovie()
     )
   }
 

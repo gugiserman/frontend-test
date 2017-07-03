@@ -5,3 +5,7 @@ body {
   color: #e5e5e5;
   background-color: #141414;
 }
+
+.pl5-half {
+  padding-left: 5.5rem;
+}

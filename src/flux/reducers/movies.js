@@ -1,7 +1,4 @@
-import mock from '../../mock/movies.json'
-
-// const initialState = []
-const initialState = mock
+const initialState = []
 
 const movies = (list = initialState, action) => {
   switch (action.type) {
