@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { movieRuntimeValidated } from '../../utils'
 
 const MovieCardLabel = ({ movie, isVisible }) => {
   if (!isVisible) {
@@ -12,6 +13,8 @@ const MovieCardLabel = ({ movie, isVisible }) => {
     runtime,
   } = movie
 
+  const showRuntime = movieRuntimeValidated(runtime)
+
   return (
     <div className="absolute z-999 bottom-0 w-100 pa2 bg-black-60 hover-bg-black-80">
       <div className="tl">
@@ -19,7 +22,12 @@ const MovieCardLabel = ({ movie, isVisible }) => {
           {show_title}
         </h2>
         <span className="f7 moon-gray">
-          {release_year} &bull; {runtime}
+          {release_year}
+          {showRuntime && (
+            <span>
+              {' '}&bull; {runtime}
+            </span>
+          )}
         </span>
       </div>
     </div>

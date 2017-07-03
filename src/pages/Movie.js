@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { NetflixRoulette, Favorites } from '../clients'
 import { updateMovie } from '../flux/actions'
 import { connect } from 'react-redux'
+import { movieRuntimeValidated } from '../utils'
 
 import {
   Page,
@@ -73,6 +74,8 @@ class MoviePage extends Component {
       isFavorite,
     } = movie
 
+    const showRuntime = movieRuntimeValidated(runtime)
+
     return (
       <Page>
         <section className="mt4">
@@ -87,8 +90,11 @@ class MoviePage extends Component {
               {rating} &#x2605;{' '}
               <small>&bull;</small>{' '}
               {release_year}{' '}
-              <small>&bull;</small>{' '}
-              {runtime}{' '}
+              {showRuntime && (
+                <span>
+                  {' '}&bull; {runtime}{' '}
+                </span>
+              )}
               <small>&bull;</small>{' '}
               <button type="button" className="button-reset ph1 bg-transparent bn gray hover-near-white pointer f7"
                       onClick={this.handleToggleFavorite}>

@@ -14,12 +14,8 @@ const Movies = ({ movies, showMoviesNotFound, showMoviesLoading }) => (
     )}
 
     {(!showMoviesLoading && !showMoviesNotFound) && movies.map(movie => (
-      <article className="dib ph1 mb2 w-100 w-20-ns">
-        <MovieCard
-          movie={movie}
-          showLabel
-          key={movie.unit}
-        />
+      <article className="dib ph1 mb2 w-100 w-20-ns" key={movie.unit}>
+        <MovieCard movie={movie} showLabel />
       </article>
     ))}
   </section>
