@@ -43,13 +43,17 @@ class HomePage extends Component {
     this.fetchMovies()
   }
 
-  componentDidUpdate() {
-    const { search } = this.props
+  componentDidUpdate(previousProps) {
+    const { search, searchParam } = this.props
+    const previousSearch = previousProps.search
+    const previousSearchParam = previousProps.searchParam
 
-    if (!search || !search.length) {
-      this.fetchMovies()
-    } else {
-      this.debouncedFetchMovies()
+    if (previousSearch !== search || previousSearchParam !== searchParam) {
+      if (!search || !search.length) {
+        this.fetchMovies()
+      } else {
+        this.debouncedFetchMovies()
+      }
     }
   }
 
