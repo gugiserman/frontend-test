@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { queryValidated } from '../../utils'
 
+const endpoint = '//netflixroulette.net/api/api.php'
 const client = axios.create({
-  baseURL: '//netflixroulette.net/api/api.php'
+  baseURL: endpoint,
 })
 
 class NetflixRoulette {
@@ -51,4 +52,5 @@ class NetflixRoulette {
   }
 }
 
+export { client }
 export default NetflixRoulette
