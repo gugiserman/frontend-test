@@ -12,15 +12,31 @@ const MovieCard = ({ movie, showLabel }) => {
   } = movie
 
   const encodedTitle = encodeURIComponent(show_title)
+  const [imgWidth, imgHeight] = [284, 398]
+  const imgPlaceholder = `//via.placeholder.com/${imgWidth}x${imgHeight}`
+
+  const imgLoaderPlaceholder = (
+    <div style={{
+      width: `${imgWidth}px`,
+      minHeight: `${imgHeight / 2}px`,
+    }} />
+  )
+
   const posterSources = [
     protocolAgnostic(poster),
-    '//via.placeholder.com/284x398',
+    imgPlaceholder,
   ]
 
   return (
     <div className="relative dib tc nested-img">
       <Link className="link" to={encodedTitle}>
-        <Img className="br1" src={posterSources} alt={show_title} width="284" />
+        <Img
+          className="br1"
+          src={posterSources}
+          loader={imgLoaderPlaceholder}
+          alt={show_title}
+          width={imgWidth}
+        />
         <MovieCardLabel movie={movie} isVisible={showLabel} />
       </Link>
     </div>

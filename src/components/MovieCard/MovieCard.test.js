@@ -1,6 +1,7 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import mock from '../../mock/movies.json'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import MovieCard from './MovieCard'
 
 const movie = mock[0]
@@ -12,8 +13,10 @@ describe('MovieCard component', () => {
       showLabel: true,
     }
 
-    shallow(
-      <MovieCard {...props} />
+    mount(
+      <MemoryRouter>
+        <MovieCard {...props} />
+      </MemoryRouter>
     )
   })
 })
