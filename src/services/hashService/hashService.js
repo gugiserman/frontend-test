@@ -29,7 +29,26 @@ class HashService {
     const { pathname } = this.history.location
     const query = this.getStringifiedState()
 
-    this.location.hash = `#${pathname}${query && `?${query}`}`
+    /**
+     * Had to stop reassigning `location.hash` because
+     * it was adding too many unecessary history entries, which
+     * caused bad weird navigation behaviour with back and forward buttons
+     */
+    // this.location.hash = `#${pathname}${query && `?${query}`}`
+
+    /**
+     * Had to stop using `history.replace` because
+     * it was adding double hash symbol to the URL (lol ???)
+     * e.g.: '/#/#/?q=tarantino', '/#/favorites/#/'
+     */
+    // this.history.replace({
+    //   pathname,
+    //   search: '',
+    //   hash: `/?${query}`,
+    // })
+
+    /* This works and browser compat seems fine */
+    this.location.replace(`#${pathname}${query && `?${query}`}`)
   }
 
   get(key) {
